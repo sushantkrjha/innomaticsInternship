@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Directory Portal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Company Directory Portal</h1>
+
+        <!-- Employee Registration Form -->
+        <div class="form-container">
+            <h2>Employee Registration Form</h2>
+            <form id="employee-form">
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName" name="fullName" placeholder="Enter full name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter email" required>
+                
+                <label for="department">Department:</label>
+                <select id="department" name="department">
+                    <option value="IT">IT</option>
+                    <option value="HR">HR</option>
+                    <option value="Finance">Finance</option>
+                </select>
+
+                <label for="employeeId">Employee ID:</label>
+                <input type="text" id="employeeId" name="employeeId" placeholder="Enter employee ID" required>
+                
+                <label for="profilePictureUrl">Profile Picture URL:</label>
+                <input type="text" id="profilePictureUrl" name="profilePictureUrl" placeholder="Enter profile picture URL">
+
+                <button type="submit">Register Employee</button>
+            </form>
+        </div>
+
+        <!-- Employee List -->
+        <div class="employee-list">
+            <h2>Employee List</h2>
+
+              
+            <ul>
+                <li>
+            
+                    <a href="#" > Sushant jha- sushantkrjha@gmail.com </a>
+                </li>
+                <li>
+                    <a href="#" >Sumit kumar - sumitkr@.gmail.com </a>
+                </li>
+            </ul> 
+            
+        </div>
+        
+       
+        <!-- Employee Details -->
+        <div class="employee-details">
+            <h2>Employee Details</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Employee ID</th>
+                        <th>Department</th>
+                        <th>Profile Picture</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>sushant jha</td>
+                        <td>12345</td>
+                        <td>IT</td>
+                        <td><img src="sushant.jpg" alt="sushant jha" width="50"></td>
+                    </tr>
+                    <tr>
+                        <td>shivam jha</td>
+                        <td>67890</td>
+                        <td>HR</td>
+                        <td><img src="shivam.jpeg" alt="shivam" width="50"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Company Location (Map) -->
+        <div class="company-location">
+            <h2>Company Location</h2>
+            <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3891.836903562309!2d77.6344812741177!3d12.897748990900642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae14245b4480b1%3A0x1b7a93bda0f324fc!2sSomasundarapalya%2C%20Bengaluru%2C%20Karnataka%20560068!5e0!3m2!1sen!2sin!4v1695567542637!5m2!1sen!2sin" 
+            width="800" 
+            height="650" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </div>
+
+</body>
+</html>
