@@ -1,0 +1,436 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Sticky Header */
+  .header {
+    background-color: #0073b1;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 10px 0;
+  }
+  
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .search-bar {
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-bar input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 5px;
+  }
+  
+  .search-bar button {
+    padding: 10px;
+    background-color: #0073b1;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .search-bar button:hover {
+    background-color: #005f8c;
+  }
+  
+  .nav {
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav a {
+    margin: 0 10px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .nav a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Page Layout */
+  .page-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  /* Left Sidebar (Profile Section) */
+  .left-sidebar {
+    flex: 1;
+    max-width: 300px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    min-width: 250px;
+  }
+  
+  .profile-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .profile-image img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .profile-info h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .profile-info p {
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  /* Experience Section */
+  .experience-section {
+    margin-top: 20px;
+  }
+  
+  .experience-section h3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .add-experience {
+    cursor: pointer;
+    color: #0073b1;
+    font-size: 1.5rem;
+  }
+  
+  /* Experience Item */
+  .experience-item {
+    margin-bottom: 10px;
+  }
+  
+  .experience-item h4 {
+    font-size: 1.2rem;
+  }
+  
+  .experience-item p {
+    font-size: 0.9rem;
+    color: #777;
+  }
+  
+  /* Main Feed Section */
+  .feed {
+    flex: 2;
+    max-width: 600px;
+  }
+  
+  .feed-content {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .feed-content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+  
+  .post {
+    margin-bottom: 20px;
+  }
+  
+  .post h3 {
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+  }
+  
+  .post p {
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  .post img {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 10px;
+  }
+  
+  /* Right Sidebar (Chat Box) */
+  .right-sidebar {
+    flex: 1;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Chat Box */
+  .chat-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .chat-box h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .chat-window {
+    max-height: 200px;
+    overflow-y: auto;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .chat-input {
+    display: flex;
+  }
+  
+  .chat-input input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px 0 0 5px;
+  }
+  
+  .chat-input button {
+    padding: 10px;
+    background-color: #0073b1;
+    color: white;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+  }
+  
+  .chat-input button:hover {
+    background-color: #005f8c;
+  }
+  /* News Section */
+.news-section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.news-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.news-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.news-section li {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.news-section li:hover {
+    color: #0073b1;
+    cursor: pointer;
+}
+/* People Section */
+.people-section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px; 
+}
+
+.people-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.people-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.people-section li {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.people-section li:hover {
+    color: #0073b1;
+    cursor: pointer;
+}
+/* Footer Section */
+.footer {
+    background-color: #f1f1f1;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px; 
+}
+
+.footer h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; 
+}
+
+.social-links a {
+    color: #0073b1;
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    text-decoration: underline;
+}
+
+
+  /* Footer */
+  .footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+  }
+  
+  /* Media Queries for Responsiveness */
+  @media (max-width: 1200px) {
+    .header h1 {
+      font-size: 1.5rem;
+    }
+  
+    .nav a {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .page-container {
+      flex-direction: column;
+    }
+  
+    .left-sidebar,
+    .right-sidebar,
+    .feed {
+      max-width: 100%;
+    }
+  
+    .header h1 {
+      font-size: 1.3rem;
+    }
+  
+    .nav a {
+      font-size: 0.9rem;
+    }
+  
+    .experience-section h3 {
+      font-size: 1.3rem;
+    }
+  
+    .profile-info h2 {
+      font-size: 1.3rem;
+    }
+  
+    .post h3 {
+      font-size: 1.3rem;
+    }
+  
+    .post p {
+      font-size: 0.9rem;
+    }
+  
+    .chat-box h3 {
+      font-size: 1.3rem;
+    }
+  
+    .chat-input input,
+    .chat-input button {
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .header h1 {
+      font-size: 1.1rem;
+    }
+  
+    .search-bar input {
+      width: 100%;
+    }
+  
+    .nav a {
+      font-size: 0.8rem;
+    }
+  
+    .experience-section h3 {
+      font-size: 1.2rem;
+    }
+  
+    .profile-info h2 {
+      font-size: 1.2rem;
+    }
+  
+    .post h3 {
+      font-size: 1.2rem;
+    }
+  
+    .post p {
+      font-size: 0.9rem;
+    }
+  
+    .chat-box h3 {
+      font-size: 1.2rem;
+    }
+  
+    .chat-input input,
+    .chat-input button {
+      font-size: 0.8rem;
+    }
+  }
+  
