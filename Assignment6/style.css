@@ -1,0 +1,119 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('image.jpeg'); /* Your background image */
+    background-size: cover;
+    background-position: center;
+    color: #333;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.task-input {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.task-input input[type="text"],
+.task-input input[type="date"],
+.task-input select {
+    width: 30%; /* Adjusted width for better responsiveness */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.task-input button {
+    width: 36%; /* Adjusted width for better responsiveness */
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.task-input button:hover {
+    background-color: #218838;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    padding: 10px;
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul li.completed {
+    text-decoration: line-through;
+    color: gray;
+}
+
+.filter {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.filter button {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+}
+
+.filter button:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+    .task-input {
+        flex-direction: column;
+    }
+
+    .task-input input[type="text"],
+    .task-input input[type="date"],
+    .task-input select,
+    .task-input button {
+        width: 100%; /* Full width on small screens */
+        margin-bottom: 10px; /* Add spacing between elements */
+    }
+
+    .filter {
+        flex-direction: column; /* Stack buttons vertically on small screens */
+    }
+
+    .filter button {
+        width: 100%; /* Full width on small screens */
+        margin-bottom: 10px; /* Add spacing between buttons */
+    }
+}
