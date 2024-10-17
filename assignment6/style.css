@@ -1,175 +1,246 @@
-/* Base Styles */
-body {
-    font-family: 'Arial', sans-serif;
-    background-image: url('https://cdn.glitch.global/190deec5-2090-4cf1-8611-3f79f1a443b3/image.jpeg?v=1729136140465'); 
-    background-size: cover;
+/* Reset some default styles */
+* {
     margin: 0;
-    padding: 20px;
-    color: #333;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-
-
-/* Main Container */
-.container {
-    background-color: rgba(255, 255, 255, 0.95); /* More opaque for better readability */
-    padding: 30px; /* Increased padding */
-    border-radius: 12px; /* More rounded corners */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Enhanced shadow for depth */
-    max-width: 600px;
-    margin: auto;
-}
-.container button{
-    color: #2980b9;
+body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
 }
 
-/* Heading */
+/* Full-screen background image */
+.background-container {
+    background-image: url('image.jpeg'); /* Replace with your image path */
+    background-size: cover; /* Cover the entire area */
+    background-position: center; /* Center the image */
+    height: 100vh; /* Full viewport height */
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    position: relative; /* For the shadow overlay */
+}
+
+/* Shadow overlay */
+.background-container::before {
+    content: '';
+    position: absolute; /* Position it over the background */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Black shadow with transparency */
+    z-index: 1; /* Place the shadow behind the content */
+}
+
+/* Todo container styles */
+.todo-container {
+    z-index: 2; /* Bring content above the shadow */
+    color: white; /* White text for contrast */
+    text-align: center; /* Center text */
+    padding: 20px; /* Add some padding */
+    border-radius: 10px; /* Rounded corners for the content box */
+    background: rgba(0, 0, 0, 0.7); /* Slightly transparent background for better readability */
+    max-width: 600px; /* Limit the width */
+    width: 90%; /* Full width on small screens */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 h1 {
-    text-align: center;
-    color: #2c3e50; /* Darker color for contrast */
-    margin-bottom: 20px; /* Space below the heading */
+    font-size: 2.5em; /* Adjust font size */
+    margin-bottom: 20px; /* Space below heading */
 }
 
-/* Task Input Styles */
 .task-input {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 15px; /* Increased margin for better spacing */
+    margin-bottom: 20px;
 }
 
-input[type="text"],
-input[type="date"],
-select {
-    padding: 12px; /* Increased padding */
-    margin-right: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    flex: 1;
-    font-size: 16px; /* Larger font size for better readability */
-}
-
-/* Button Styles */
-button {
-    padding: 12px 18px; /* Increased padding */
+.task-input input[type="text"] {
+    width: 75%;
+    padding: 10px;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.task-input button {
+    width: 20%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF; /* Blue color */
+    color: white;
+    font-size: 1em;
     cursor: pointer;
-    font-size: 16px; /* Larger font size */
-    transition: background-color 0.3s, transform 0.3s; /* Added transform for hover */
+    transition: background-color 0.3s;
 }
 
-#addTaskBtn {
-    background-color: #3498db; /* Add button color */
-    color: white; /* Text color for contrast */
+.task-input button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
 }
 
-.edit-btn {
-    background-color: #f39c12; /* Edit button color */
-    color: #fff; /* Text color for contrast */
+.selectors {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
 }
 
-.delete-btn {
-    background-color: #e74c3c; /* Delete button color */
-    color: white; /* Text color for better contrast */
+.selectors select,
+.selectors input[type="date"] {
+    width: 32%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
 }
 
-#addTaskBtn:hover {
-    background-color: #2980b9; /* Darker blue on hover */
-    transform: scale(1.05); /* Scale effect on hover */
-}
-
-.edit-btn:hover {
-    background-color: #e67e22; /* Darker yellow on hover */
-    transform: scale(1.05); /* Scale effect on hover */
-}
-
-.delete-btn:hover {
-    background-color: #c0392b; /* Darker red on hover */
-    transform: scale(1.05); /* Scale effect on hover */
-}
-
-/* List Styles */
 ul {
-    list-style-type: none;
-    padding: 0;
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
+    margin-top: 20px; /* Space above list */
 }
 
 li {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px; /* Increased padding for better spacing */
-    border-bottom: 1px solid #ccc;
-    transition: background-color 0.3s; /* Smooth background change */
+    background: rgba(255, 255, 255, 0.1); /* Light background for tasks */
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    flex-wrap: wrap;
 }
 
-li:hover {
-    background-color: #f9f9f9; /* Light background on hover */
+li span {
+    flex: 1;
+    text-align: left;
+    word-wrap: break-word;
 }
 
-.completed {
+li.completed span {
     text-decoration: line-through;
-    color: gray; /* Gray color for completed tasks */
+    color: gray;
 }
 
-/* Filter Styles */
+button.complete-btn {
+    background-color: #28a745; /* Green */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-right: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button.complete-btn:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+button.edit-btn {
+    background-color: #ffc107; /* Yellow */
+    color: black;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-right: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button.edit-btn:hover {
+    background-color: #e0a800; /* Darker yellow on hover */
+}
+
+button.delete-btn {
+    background-color: #dc3545; /* Red */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button.delete-btn:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
+
 .filter {
-    text-align: center;
-    margin-top: 15px; /* Increased margin for better spacing */
+    margin-top: 20px;
 }
 
 .filter button {
-    margin: 0 5px;
-    background-color: #3498db; 
+    padding: 10px 15px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF; /* Blue */
     color: white;
-    border-radius: 4px; 
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .filter button:hover {
-    background-color: #2980b9;
+    background-color: #0056b3; /* Darker blue on hover */
 }
 
-
 .moving-text {
-    background-color: rgba(240, 248, 255, 0.9); 
-    padding: 10px;
-    overflow: hidden;
-    white-space: nowrap; 
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
-    position: fixed; 
-    bottom: 0; 
-    left: 0; 
-    width: 100%; 
+    position: fixed;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
 }
 
 .moving-text p {
-    display: inline-block; 
-    animation: marquee 10s linear infinite; 
+    display: inline-block;
+    color: #fff;
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+    border-radius: 5px;
+    animation: moveText 10s linear infinite;
 }
 
-@keyframes marquee {
-    0% {
-        transform: translateX(100%); 
-    }
-    100% {
-        transform: translateX(-100%); 
-    }
+@keyframes moveText {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
 }
 
-
+/* Responsive styles */
 @media (max-width: 600px) {
-    .task-input {
-        flex-direction: column;
+    h1 {
+        font-size: 2em; /* Smaller font for smaller screens */
     }
-    
-    .task-input input[type="text"],
+
+    .task-input input[type="text"] {
+        width: 65%;
+    }
+
     .task-input button {
-        margin: 5px 0;
+        width: 30%;
+    }
+
+    .selectors select,
+    .selectors input[type="date"] {
         width: 100%;
     }
-    
-    select {
-        margin: 5px 0;
-        width: 100%;
+
+    li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    li button {
+        margin-top: 5px;
+    }
+
+    .filter button {
+        width: 30%;
     }
 }

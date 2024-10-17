@@ -9,8 +9,7 @@ function addTask() {
     const dueDate = document.getElementById('due-date').value;
     const status = document.getElementById('status').value;
 
-
-    if (taskValue === '') return;
+    if (taskValue === '') return; // If input is empty, do nothing
 
     const newTask = {
         id: Date.now(),
@@ -19,7 +18,7 @@ function addTask() {
         priority: priority,
         dueDate: dueDate,
         status: status,
-        completed: false
+        completed: status === 'completed' // Set completed status
     };
 
     tasks.push(newTask);
@@ -43,6 +42,7 @@ function renderTasks(filter = 'all') {
         const li = document.createElement('li');
         li.innerHTML = `
             <span class="${task.completed ? 'completed' : ''}">${task.task} (${task.category}, ${task.priority}, ${task.status}, Due: ${task.dueDate})</span>
+            <button class="complete-btn" onclick="markComplete(${task.id})">Mark Complete</button>
             <button class="edit-btn" onclick="editTask(${task.id})">Edit</button>
             <button class="delete-btn" onclick="deleteTask(${task.id})">Delete</button>
         `;
@@ -60,8 +60,7 @@ function editTask(id) {
         document.getElementById('due-date').value = taskToEdit.dueDate;
         document.getElementById('status').value = taskToEdit.status;
 
-        // Remove the task from the array for editing
-        tasks = tasks.filter(task => task.id !== id);
+        tasks = tasks.filter(task => task.id !== id); // Remove the task for editing
         localStorage.setItem('tasks', JSON.stringify(tasks));
         renderTasks();
     }
@@ -71,7 +70,7 @@ function editTask(id) {
 function markComplete(id) {
     tasks = tasks.map(task => {
         if (task.id === id) {
-            task.completed = !task.completed;
+            task.completed = true; // Mark task as completed
         }
         return task;
     });
@@ -81,7 +80,7 @@ function markComplete(id) {
 
 // Delete task function
 function deleteTask(id) {
-    tasks = tasks.filter(task => task.id !== id);
+    tasks = tasks.filter(task => task.id !== id); // Remove the task
     localStorage.setItem('tasks', JSON.stringify(tasks));
     renderTasks();
 }
@@ -95,4 +94,3 @@ function filterTasks(filter) {
 document.addEventListener('DOMContentLoaded', () => {
     renderTasks();
 });
-
