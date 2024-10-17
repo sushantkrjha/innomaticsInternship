@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo List Application</title>
-    <link rel="stylesheet" href="style.css"> <!-- Optional CSS file -->
+    <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
+
+
     <div class="container">
         <h1>Todo List</h1>
         <div class="task-input">
@@ -22,7 +24,14 @@
         <select id="priority">
             <option value="Low">Low</option>
             <option value="Medium">Medium</option>
-            <option value="High">High</option>
+            <option value="High">High</option>  
+
+        </select>
+
+        <select id="status">
+            <option value="panding">Panding</option>
+            <option value="completed">Completed</option>
+            
         </select>
         
         <input type="date" id="due-date">
@@ -32,10 +41,12 @@
         <div class="filter">
             <button onclick="filterTasks('all')">All</button>
             <button onclick="filterTasks('completed')">Completed</button>
-            <button onclick="filterTasks('pending')">Pending</button>
+            
         </div>
     </div>
-
-    <script src="app.js"></script>  <!-- Link JavaScript file -->
+    <div class="moving-text">
+        <p>Welcome to the Todo List Application! Manage your tasks effectively!</p>
+    </div>
+    <script src="app.js"></script>  
 </body>
 </html>

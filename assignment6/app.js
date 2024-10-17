@@ -1,11 +1,14 @@
 let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
+// Add task function
 function addTask() {
     const taskInput = document.getElementById('task');
     const taskValue = taskInput.value;
     const category = document.getElementById('category').value;
     const priority = document.getElementById('priority').value;
     const dueDate = document.getElementById('due-date').value;
+    const status = document.getElementById('status').value;
+
 
     if (taskValue === '') return;
 
@@ -15,6 +18,7 @@ function addTask() {
         category: category,
         priority: priority,
         dueDate: dueDate,
+        status: status,
         completed: false
     };
 
@@ -24,6 +28,7 @@ function addTask() {
     renderTasks();
 }
 
+// Render tasks on the page
 function renderTasks(filter = 'all') {
     const taskList = document.getElementById('task-list');
     taskList.innerHTML = ''; // Clear previous tasks
@@ -37,14 +42,32 @@ function renderTasks(filter = 'all') {
     filteredTasks.forEach(task => {
         const li = document.createElement('li');
         li.innerHTML = `
-            <span>${task.task} (${task.category}, ${task.priority}, Due: ${task.dueDate})</span>
-            <button onclick="markComplete(${task.id})">${task.completed ? 'Unmark' : 'Mark'} Complete</button>
-            <button onclick="deleteTask(${task.id})">Delete</button>
+            <span class="${task.completed ? 'completed' : ''}">${task.task} (${task.category}, ${task.priority}, ${task.status}, Due: ${task.dueDate})</span>
+            <button class="edit-btn" onclick="editTask(${task.id})">Edit</button>
+            <button class="delete-btn" onclick="deleteTask(${task.id})">Delete</button>
         `;
         taskList.appendChild(li);
     });
 }
 
+// Edit task function
+function editTask(id) {
+    const taskToEdit = tasks.find(task => task.id === id);
+    if (taskToEdit) {
+        document.getElementById('task').value = taskToEdit.task;
+        document.getElementById('category').value = taskToEdit.category;
+        document.getElementById('priority').value = taskToEdit.priority;
+        document.getElementById('due-date').value = taskToEdit.dueDate;
+        document.getElementById('status').value = taskToEdit.status;
+
+        // Remove the task from the array for editing
+        tasks = tasks.filter(task => task.id !== id);
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+        renderTasks();
+    }
+}
+
+// Mark task as complete
 function markComplete(id) {
     tasks = tasks.map(task => {
         if (task.id === id) {
@@ -56,12 +79,14 @@ function markComplete(id) {
     renderTasks();
 }
 
+// Delete task function
 function deleteTask(id) {
     tasks = tasks.filter(task => task.id !== id);
     localStorage.setItem('tasks', JSON.stringify(tasks));
     renderTasks();
 }
 
+// Filter tasks based on status
 function filterTasks(filter) {
     renderTasks(filter);
 }
@@ -70,3 +95,4 @@ function filterTasks(filter) {
 document.addEventListener('DOMContentLoaded', () => {
     renderTasks();
 });
+

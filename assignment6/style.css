@@ -1,0 +1,175 @@
+/* Base Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url('https://cdn.glitch.global/190deec5-2090-4cf1-8611-3f79f1a443b3/image.jpeg?v=1729136140465'); 
+    background-size: cover;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+
+
+/* Main Container */
+.container {
+    background-color: rgba(255, 255, 255, 0.95); /* More opaque for better readability */
+    padding: 30px; /* Increased padding */
+    border-radius: 12px; /* More rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Enhanced shadow for depth */
+    max-width: 600px;
+    margin: auto;
+}
+.container button{
+    color: #2980b9;
+}
+
+/* Heading */
+h1 {
+    text-align: center;
+    color: #2c3e50; /* Darker color for contrast */
+    margin-bottom: 20px; /* Space below the heading */
+}
+
+/* Task Input Styles */
+.task-input {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px; /* Increased margin for better spacing */
+}
+
+input[type="text"],
+input[type="date"],
+select {
+    padding: 12px; /* Increased padding */
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    flex: 1;
+    font-size: 16px; /* Larger font size for better readability */
+}
+
+/* Button Styles */
+button {
+    padding: 12px 18px; /* Increased padding */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px; /* Larger font size */
+    transition: background-color 0.3s, transform 0.3s; /* Added transform for hover */
+}
+
+#addTaskBtn {
+    background-color: #3498db; /* Add button color */
+    color: white; /* Text color for contrast */
+}
+
+.edit-btn {
+    background-color: #f39c12; /* Edit button color */
+    color: #fff; /* Text color for contrast */
+}
+
+.delete-btn {
+    background-color: #e74c3c; /* Delete button color */
+    color: white; /* Text color for better contrast */
+}
+
+#addTaskBtn:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+    transform: scale(1.05); /* Scale effect on hover */
+}
+
+.edit-btn:hover {
+    background-color: #e67e22; /* Darker yellow on hover */
+    transform: scale(1.05); /* Scale effect on hover */
+}
+
+.delete-btn:hover {
+    background-color: #c0392b; /* Darker red on hover */
+    transform: scale(1.05); /* Scale effect on hover */
+}
+
+/* List Styles */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px; /* Increased padding for better spacing */
+    border-bottom: 1px solid #ccc;
+    transition: background-color 0.3s; /* Smooth background change */
+}
+
+li:hover {
+    background-color: #f9f9f9; /* Light background on hover */
+}
+
+.completed {
+    text-decoration: line-through;
+    color: gray; /* Gray color for completed tasks */
+}
+
+/* Filter Styles */
+.filter {
+    text-align: center;
+    margin-top: 15px; /* Increased margin for better spacing */
+}
+
+.filter button {
+    margin: 0 5px;
+    background-color: #3498db; 
+    color: white;
+    border-radius: 4px; 
+}
+
+.filter button:hover {
+    background-color: #2980b9;
+}
+
+
+.moving-text {
+    background-color: rgba(240, 248, 255, 0.9); 
+    padding: 10px;
+    overflow: hidden;
+    white-space: nowrap; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+    position: fixed; 
+    bottom: 0; 
+    left: 0; 
+    width: 100%; 
+}
+
+.moving-text p {
+    display: inline-block; 
+    animation: marquee 10s linear infinite; 
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(100%); 
+    }
+    100% {
+        transform: translateX(-100%); 
+    }
+}
+
+
+@media (max-width: 600px) {
+    .task-input {
+        flex-direction: column;
+    }
+    
+    .task-input input[type="text"],
+    .task-input button {
+        margin: 5px 0;
+        width: 100%;
+    }
+    
+    select {
+        margin: 5px 0;
+        width: 100%;
+    }
+}
